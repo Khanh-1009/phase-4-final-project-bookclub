@@ -6,7 +6,7 @@ import {UserContext} from '../user';
 function Home({books}) {
   const {user} = useContext(UserContext)
 
-  if (!user) {
+  if (!user || user.error) {
     return (<h3>Please Login or Signup</h3>)
   } else {
     return (
