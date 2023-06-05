@@ -25,12 +25,12 @@ header {
 }
 
 header h1 {
-  font-family: "Londrina Outline", cursive;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   color: rgb(255, 255, 255);
   font-size: 3rem;
 }
-
+/* "Londrina Outline", cursive */
 .main {
   max-width: 1000px;
   margin: 0 auto;

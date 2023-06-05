@@ -5,6 +5,9 @@ import { Route, Routes } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import Home from './Home';
 import BookDetail from './BookDetail';
+import { UserProvider } from '../user';
+import Login from './Login';
+import Signup from './Signup';
 
 function App() {
   const [books, setBooks] = useState([])
@@ -17,11 +20,15 @@ function App() {
 
   return (
     <div >
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home books={books}/>} />
-        <Route path="/books/:id" element={<BookDetail />} />
-      </Routes>
+      <UserProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home books={books}/>} />
+          <Route path="/books/:id" element={<BookDetail />} />
+          <Route path="/signup" element={<Signup />} /> 
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </UserProvider>
     </div>
   )
 }

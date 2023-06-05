@@ -12,10 +12,10 @@ function BookList({book}) {
         <div className="bookdetail">
           <Link to={`/books/${id}`}>
             <h2>{title}</h2>
-            </Link>
-                <p>
-                {category} | {year} 
-                </p>
+          </Link>
+            <p>
+              {category} | {year} 
+            </p>
             <p>Author: {author}</p>
             <p>{description}</p>
         </div>
