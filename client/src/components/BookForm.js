@@ -1,6 +1,6 @@
 import React from "react";
 
-function BookDetail() {
+function BookForm() {
   return (
     <div className="book-form">
         <form>
@@ -61,4 +61,4 @@ function BookDetail() {
   );
 }
 
-export default BookDetail;
+export default BookForm;

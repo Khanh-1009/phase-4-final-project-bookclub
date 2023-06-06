@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../user";
+import {Link} from "react-router-dom"
 
 function Login() {
   const [username, setUsername] = useState("")
@@ -7,6 +8,7 @@ function Login() {
   const [error, setError] = useState([])
   const {login} = useContext(UserContext)
 
+  
   function handleSubmit(e){
     e.preventDefault()
     fetch('/login', {
@@ -51,7 +53,8 @@ function Login() {
         />
         <br/>
         <button>Log In</button>
-
+        <br/>
+        <p>You don't have an account? Please <Link to={'/signup'} style={{color: "white"}}>register</Link></p>
           <ul style={{color: "red"}}>
             {error.map((error) => (
               <li key={error}>{error}</li>

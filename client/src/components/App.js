@@ -8,6 +8,7 @@ import BookDetail from './BookDetail';
 import { UserProvider } from '../user';
 import Login from './Login';
 import Signup from './Signup';
+import BookForm from './BookForm';
 
 function App() {
   const [books, setBooks] = useState([])
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home books={books}/>} />
           <Route path="/books/:id" element={<BookDetail />} />
+          <Route path="/add-book" element={<BookForm />} />
           <Route path="/signup" element={<Signup />} /> 
           <Route path="/login" element={<Login />} />
         </Routes>

@@ -32,17 +32,12 @@ header h1 {
 }
 /* "Londrina Outline", cursive */
 
-header nav {
+.navlink {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin: 8px;
   padding: 8px;
-  justify-items: space-between;
-  
-  /* &.active {
-    border-bottom: 3px solid;
-  } */
 }
 
 .main {
@@ -115,6 +110,7 @@ header nav {
 }
 
 .signup-login-form label {
+  font-size: 1.15rem;
   margin-left: 10px;
   size: 20;
   color: white;
@@ -128,7 +124,46 @@ header nav {
   line-height: 1.5;
 }
 
-.signup-login-form button [type="submit"] {
-  margin: 0.5rem;
-  width: 60%;
+.signup-login-form button  {
+  margin: 0.5rem ;
+  width: 30%;
+} 
+/* [type="submit"] */
+
+.signup-login-form p {
+  font-size: 1.15rem;
+  margin: 0.5rem ;
+  color: white
+} 
+
+.book-form {
+  margin-top: 200px;
+  margin-inline: auto;
+  background-color: rgb(88, 91, 91);
+  border: 1px solid rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 0 1rem 1rem;
+}
+
+.book-form h1 {
+  margin-left: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+
+.book-form label {
+  font-size: 1.15rem;
+  margin-left: 10px;
+  size: 20;
+  color: white;
+}
+
+.book-form input {
+  margin: 0.5rem ;
+  max-width: 100%;
+  width: 90%;
+  font-size: 1rem;
+  line-height: 1.5;
 }

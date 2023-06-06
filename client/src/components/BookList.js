@@ -10,7 +10,7 @@ function BookList({book}) {
             <img src={poster_url} alt={title + " Poster"} />
         </div>
         <div className="bookdetail">
-          <Link to={`/books/${id}`}>
+          <Link style={{color: "black"}} to={`/books/${id}` }>
             <h2>{title}</h2>
           </Link>
             <p>
