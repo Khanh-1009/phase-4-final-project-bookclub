@@ -12,7 +12,7 @@ function UserProvider({children}){
     }, [])
 
     function login(){
-
+        setUser(user)
     }
 
     function logout(){
@@ -20,7 +20,7 @@ function UserProvider({children}){
     }
 
     function signup(){
-
+        setUser(user)
     }
 
     return (
