@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { UserContext } from "../user";
 
 const linkStyles = {
   display: "inline",
@@ -12,6 +13,16 @@ const linkStyles = {
 };
 
 function Header() {
+  const {user, logout} = useContext(UserContext)
+
+  function handleLogoutClick(){
+    fetch('/logout', {method: "DELETE"}).then((res) => {
+      if (res.ok){
+        logout()
+      }
+    })
+  }
+
   return (
     <header>
         <h1>Book Lovers Club</h1>
@@ -38,7 +49,8 @@ function Header() {
       >
         Add-Book
       </NavLink>
-      <NavLink 
+      {user ? ( 
+      <NavLink
       to="/login" 
       exact 
       style={linkStyles}
@@ -47,11 +59,26 @@ function Header() {
         color: "black"
       }}
       >
-        &#128100; Log In
+      &#128100; Log In 
+    </NavLink>) : (
+      <NavLink onClick={handleLogoutClick}
+      to="/logout" 
+      exact 
+      style={linkStyles}
+      activeStyle={{
+        background: "white",
+        color: "black"
+      }}
+      >
+      Log Out
       </NavLink>
+      )}
       </nav>
     </header>
   );
 }
 
 export default Header;
+
+
+

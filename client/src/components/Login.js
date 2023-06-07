@@ -8,7 +8,7 @@ function Login() {
   const [error, setError] = useState([])
   const {login} = useContext(UserContext)
 
-  
+
   function handleSubmit(e){
     e.preventDefault()
     fetch('/login', {
@@ -23,7 +23,11 @@ function Login() {
       console.log(res)
       if (res.ok){
         console.log("success")
-        res.json().then((user) => login(user))
+        res.json().then((user) => {
+          login(user)
+          setUsername("")
+          setPassword("")
+        })
       } else {
         res.json().then((err) => setError(err.errors))
       }

@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../user";
+import {Link} from "react-router-dom"
 
 function Signup() {
   const [username, setUsername] = useState("")
@@ -21,7 +22,12 @@ function Signup() {
     })
     .then((res) => {
       if (res.ok){
-        res.json().then((user) => signup(user))
+        res.json().then((user) => {
+          signup(user)
+          setUsername("")
+          setPassword("")
+          setPasswordConfirmation("")
+        })
       } else {
         res.json().then((err) => setErrorsList(err.errors))
       }
@@ -60,6 +66,8 @@ function Signup() {
         />
         <br/>
         <button>Sign Up</button>
+        <br/>
+        <p>You might have created an account before? Please try to <Link to={'/login'} style={{color: "white"}}>sign in</Link></p>
         {errorsList.length > 0 && (
           <ul style={{color: "red"}}>
             {errorsList.map((error) => (

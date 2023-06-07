@@ -3,6 +3,7 @@ import React from "react";
 function BookForm() {
   return (
     <div className="book-form">
+        <h1>Add New Book</h1>
         <form>
           <label>Title</label>
           <br/>
@@ -56,6 +57,7 @@ function BookForm() {
             value=""
             onChange=""
           />
+          <button>Submit Book</button>
         </form>
     </div>
   );
