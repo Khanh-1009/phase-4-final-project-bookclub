@@ -16,7 +16,7 @@ function UserProvider({children}){
     }
 
     function logout(){
-
+        
     }
 
     function signup(){
