@@ -1,17 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 
-function BookForm() {
+function BookForm({onAddNewBook}) {
+  const [errors, setErrors] = useState([])
+  const [formData, setFormData] = useState({
+    title: "",
+    year: "",
+    author: "",
+    description: "",
+    poster_url: "",
+    category: "",
+  })
+
+  function handleChange(e){
+    const keyValue = e.target.id
+    setFormData({
+      ...formData,
+      [keyValue]: e.target.value
+    })
+  }
+
+  function handleSubmit(e){
+    e.preventDefault()
+    fetch("/books", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    })
+    .then((res) => {
+      if (res.ok){
+        res.json().then((newBook) => {
+          onAddNewBook(newBook)
+          setFormData(formData)
+        })
+      } else {
+        res.json().then((err) => setErrors(err.errors))
+      }
+    })
+  }
+
   return (
     <div className="book-form">
         <h1>Add New Book</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>Title</label>
           <br/>
           <input
             type="text"
             id="title"
-            value=""
-            onChange=""
+            value={formData.title}
+            onChange={handleChange}
           />
           <br/>
           <label>Year</label>
@@ -19,8 +58,8 @@ function BookForm() {
           <input
             type="number"
             id="year"
-            value=""
-            onChange=""
+            value={formData.year}
+            onChange={handleChange}
           />
           <br/>
           <label>Author</label>
@@ -28,16 +67,16 @@ function BookForm() {
           <input
             type="text"
             id="author"
-            value=""
-            onChange=""
+            value={formData.author}
+            onChange={handleChange}
           />
           <br/>
           <label>Description</label>
           <br/>
           <textarea
             id="description"
-            value=""
-            onChange=""
+            value={formData.description}
+            onChange={handleChange}
           />
           <br/>
           <label>Poster</label>
@@ -45,8 +84,8 @@ function BookForm() {
           <input
             type="text"
             id="poster_url"
-            value=""
-            onChange=""
+            value={formData.poster_url}
+            onChange={handleChange}
           />
           <br/>
           <label>Category</label>
@@ -54,10 +93,17 @@ function BookForm() {
           <input
             type="text"
             id="category"
-            value=""
-            onChange=""
+            value={formData.category}
+            onChange={handleChange}
           />
           <button>Submit Book</button>
+          {errors.length > 0 && (
+            <ul style={{color : "red"}}>
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+          )}
         </form>
     </div>
   );
