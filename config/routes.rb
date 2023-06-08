@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/me', to: 'users#show'
 
   resources :books
+  resources :users
+  resources :reviews
   
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

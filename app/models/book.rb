@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-    CATEGORIES = ['Fiction', 'Non-Fiction', 'Romance', 'Historical Fiction', 'Science Fiction', 'Biography', 'Fantasy', 'Novel']
+    CATEGORIES = ['Fiction', 'Non-Fiction', 'Romance', 'Historical Fiction', 'Science Fiction', 'Biography', 'Fantasy', 'Novel', 'Thriller']
 
     validates :title, :year, :author, :description, :category, presence: true
     validates :description, length: { minimum: 50 }

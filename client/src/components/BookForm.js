@@ -32,7 +32,8 @@ function BookForm({onAddNewBook}) {
       if (res.ok){
         res.json().then((newBook) => {
           onAddNewBook(newBook)
-          setFormData(formData)
+          setFormData({})
+          alert("Thanks for being awesome! We have posted this new book in our website for all members to enjoy!")
         })
       } else {
         res.json().then((err) => setErrors(err.errors))

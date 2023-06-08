@@ -26,6 +26,10 @@ function BookDetail({books}) {
             <p>Author: {currentBook.author}</p>
             <p>{currentBook.description}</p>
         </div>
+        <div className="button-book">
+        <button style={{margin:"15px"}}>Read Online</button>
+        <button style={{margin:"15px"}}>Request a copy</button>
+        </div>
     </div>
   );
 }

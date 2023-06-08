@@ -48,6 +48,7 @@ header h1 {
   padding: 10px 20px 10px 15px;
   margin: 40px 6px 6px;
   text-decoration: none;
+  border-radius: 8px
 }
 
 .active {
@@ -57,6 +58,7 @@ header h1 {
   margin: 40px 6px 6px;
   text-decoration: none;
   font-weight: bold;
+  border-radius: 8px
 }
 
 .main {
@@ -123,12 +125,24 @@ header h1 {
   width: 100%;
 }
 
+.button-book{
+  display: inline-block;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: max-content;
+}
+
 .category {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
+/*Signup-Login form*/
 .signup-login-form {
   margin-top: 200px;
   margin-inline: auto;
