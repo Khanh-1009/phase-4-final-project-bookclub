@@ -15,6 +15,8 @@ function BookDetail({books}) {
     }
   }, [books])
 
+  console.log(books)
+
   return (
     <div>
       <div className="each-book">
@@ -30,8 +32,8 @@ function BookDetail({books}) {
               <p>{currentBook.description}</p>
           </div>
           <div className="button-book">
-          <button style={{margin:"15px"}}>Read Online</button>
-          <button style={{margin:"15px"}}>Request a copy</button>
+          <button style={{margin:"15px"}}>Edit Summary</button>
+          {/* <button style={{margin:"15px"}}>Request a copy</button> */}
           </div>
       </div>
       <ReviewForm />
