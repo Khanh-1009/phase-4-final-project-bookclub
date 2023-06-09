@@ -58,11 +58,18 @@
 # ])
 
 Review.create([
+    # {
+    #     subject: "Great Book",
+    #     review: "This such an amazingly wonderful book which made laugh out loud and cry my eyes out, but it was so worth it! I definitely recommend people to read or else you're gonna miss out on a lot! Alex's and Rosie's life is truly a Rollercoaster of fate, love, friendship and destiny",
+    #     rating: 5,
+    #     user_id: 3,
+    #     book_id: 3
+    # },
     {
-        subject: "Great Book",
-        review: "This such an amazingly wonderful book which made laugh out loud and cry my eyes out, but it was so worth it! I definitely recommend people to read or else you're gonna miss out on a lot! Alex's and Rosie's life is truly a Rollercoaster of fate, love, friendship and destiny",
-        rating: 5,
-        user_id: 3,
+        subject: "Nice story but not quite satisfied",
+        review: "A good-humoured epistolary novel about two people who were meant to be together from the very beginning, but it took them quite long to realise that.",
+        rating: 3,
+        user_id: 4,
         book_id: 3
     }
 ])

@@ -27,6 +27,7 @@ function Signup() {
           setUsername("")
           setPassword("")
           setPasswordConfirmation("")
+          alert('Thanks for signing up! Enjoy and share your experience with us!')
         })
       } else {
         res.json().then((err) => setErrorsList(err.errors))
