@@ -187,7 +187,7 @@ header h1 {
   width: 60%;
   margin-bottom: 10px;
   flex-wrap: wrap;
-  box-shadow: 5px 8px #b2b2b2;
+  box-shadow: 2px 4px #b2b2b2;
   border: grey solid 1px;
 }
 
@@ -206,6 +206,13 @@ header h1 {
   margin-right: 10px;
   cursor: pointer;
   padding: 2px;
+}
+/*Edit Review*/
+.edit-message{
+  margin: 0.15rem ;
+  max-width: 100%;
+  font-size: 1rem;
+  line-height: 2.5;
 }
 
 /*Signup-Login form*/

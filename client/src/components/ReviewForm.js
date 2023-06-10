@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
+import { UserContext } from "../user";
 
 function ReviewForm ({onAddReview}){
     const [subject, setSubject] = useState("")
     const [rate, setRate] = useState(1)
     const [review, setReview] = useState("")
     const [errors, setErrors] = useState([])
+    const {user} = useContext(UserContext)
 
     const params = useParams()
 
@@ -32,7 +34,8 @@ function ReviewForm ({onAddReview}){
                 subject: subject,
                 rating: rate,
                 review: review,
-                book_id: params.id
+                book_id: params.id,
+                user_id: user.id
             })
         })
         .then(res => {

@@ -27,6 +27,7 @@ function Login() {
           login(user)
           setUsername("")
           setPassword("")
+          alert("You have successfully logged in. Welcome back!")
         })
       } else {
         res.json().then((err) => setError(err.errors))

@@ -22,6 +22,19 @@ function BookDetail({books, setBooks}) {
     setBooks(updatedBookAfterAddedReview)
   }
 
+  function handleChangeReview(updatedReview){
+    const updateReviewOfBook = currentBook.reviews.map((review) => {
+      if (review.id === updatedReview.id){
+        return updatedReview
+      } else {
+        return review
+      }
+    })
+    currentBook.reviews = updateReviewOfBook
+    const updatedBookAfterEditReview = books.map(book => book.id === currentBook.book_id ? currentBook : book)
+    setBooks(updatedBookAfterEditReview)
+  }
+
   return (
     <div>
       <div className="each-book">
@@ -44,7 +57,8 @@ function BookDetail({books, setBooks}) {
       <ReviewForm onAddReview={handleAddReview}/>
       <h2 id="audience-reviews">Audience Reviews</h2>
       {currentBook.reviews.map((bookReviews) => (
-        <Reviews key={bookReviews.id} bookReviews={bookReviews}/>
+        <Reviews key={bookReviews.id} bookReviews={bookReviews}
+        onChangeReview={handleChangeReview}/>
       ))}
     </div>
   );

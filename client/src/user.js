@@ -11,6 +11,8 @@ function UserProvider({children}){
         .then(data => setUser(data))
     }, [])
 
+    console.log(user)
+
     function login(){
         setUser(user)
     }
