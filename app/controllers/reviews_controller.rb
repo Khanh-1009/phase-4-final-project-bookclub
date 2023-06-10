@@ -8,12 +8,13 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        review = current_book.reviews.create(review_params)
-        if review.valid?
-            render json: review
-        else
-            render json: { errors: review.errors.full_messages }, status: :unprocessable_entity
-        end
+        review = current_book.reviews.create!(review_params)
+        render json: review, status: :created
+        # if review.valid?
+        #     render json: review
+        # else
+        #     render json: { errors: review.errors.full_messages }, status: :unprocessable_entity
+        # end
     end
 
     def update
@@ -29,7 +30,7 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-        params.permit(:subject, :review)
+        params.permit(:subject, :rating, :review, :book_id, :user_id)
     end
     
     def render_unprocessable_entity_response(invalid)

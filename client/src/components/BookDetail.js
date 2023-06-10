@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ReviewForm from "./ReviewForm";
 import Reviews from "./Reviews";
 
-function BookDetail({books}) {
+function BookDetail({books, setBooks}) {
   const [currentBook, setCurrentBook] = useState({reviews: []})
   const params = useParams()
   const bookId = parseInt(params.id)
@@ -15,7 +15,12 @@ function BookDetail({books}) {
     }
   }, [books])
 
-  console.log(books)
+  function handleAddReview(newReview){
+    const addNewReview = [...currentBook.reviews, newReview]
+    currentBook.reviews = addNewReview
+    const updatedBookAfterAddedReview = books.map(book => book.id === currentBook.book_id ? currentBook : book)
+    setBooks(updatedBookAfterAddedReview)
+  }
 
   return (
     <div>
@@ -36,7 +41,7 @@ function BookDetail({books}) {
           {/* <button style={{margin:"15px"}}>Request a copy</button> */}
           </div>
       </div>
-      <ReviewForm />
+      <ReviewForm onAddReview={handleAddReview}/>
       <h2 id="audience-reviews">Audience Reviews</h2>
       {currentBook.reviews.map((bookReviews) => (
         <Reviews key={bookReviews.id} bookReviews={bookReviews}/>

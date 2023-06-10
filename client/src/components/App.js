@@ -29,7 +29,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home books={books}/>} />
-          <Route path="/books/:id" element={<BookDetail books={books}/>} />
+          <Route path="/books/:id" element={<BookDetail books={books} setBooks={setBooks}/>} />
           <Route path="/add-book" element={<BookForm onAddNewBook={handleAddNewBook}/>} />
           <Route path="/signup" element={<Signup />} /> 
           <Route path="/login" element={<Login />} />
