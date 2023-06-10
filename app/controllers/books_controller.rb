@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    before_action :authorize
 
     def index
         books = Book.all
@@ -18,5 +19,9 @@ class BooksController < ApplicationController
 
     def render_unprocessable_entity_response(invalid)
         render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    end
+
+    def authorize 
+        render json: {error: "Not authorized"}, status: :unauthorized unless session.include? :user_id        
     end
 end

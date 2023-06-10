@@ -1,6 +1,42 @@
 class ReviewsController < ApplicationController
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    before_action :authorize
+
     def index
         reviews = Review.all 
         render json: reviews
+    end
+
+    def create
+        review = current_book.reviews.create(review_params)
+        if review.valid?
+            render json: review
+        else
+            render json: { errors: review.errors.full_messages }, status: :unprocessable_entity
+        end
+    end
+
+    def update
+        review = current_book.reviews.find_by(id: params[:id])
+        review.update!(review_params)
+        render json: review
+    end
+
+    private
+
+    def current_book
+        Book.find(params[:book_id])
+    end
+
+    def review_params
+        params.permit(:subject, :review)
+    end
+    
+    def render_unprocessable_entity_response(invalid)
+        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    end
+
+    def authorize 
+        render json: { errors: "Not authorized"}, status: :unauthorized unless session.include? :user_id
     end
 end
