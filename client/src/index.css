@@ -208,13 +208,10 @@ header h1 {
   padding: 2px;
 }
 /*Edit Review*/
-.edit-message{
-  margin: 0.15rem ;
-  max-width: 100%;
-  font-size: 1rem;
-  line-height: 2.5;
+#edit-review {
+  width: 99%;
+  line-height: 2;
 }
-
 /*Signup-Login form*/
 .signup-login-form {
   margin-top: 200px;

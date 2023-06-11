@@ -19,18 +19,19 @@ function ReviewEdit ({id, review, onUpdateReview}){
             }),
         })
         .then(res => res.json())
-        .then(updatedReview => onUpdateReview(updatedReview))
+        .then(updatedReview => {
+            console.log("got here")
+            onUpdateReview(updatedReview)})
     }
 
     return (
-        <form className="edit-message" onSubmit={handleUpdateReview}>
+        <form onSubmit={handleUpdateReview}>
             <textarea
-                id="review"
+                id="edit-review"
                 value={editReview}
                 onChange={handleChangeNewReview}
                 />
             <button>Save</button>
-          {/* <input type="submit" value="Save" /> */}
         </form>
     )
 

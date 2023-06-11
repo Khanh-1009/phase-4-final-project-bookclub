@@ -84,11 +84,13 @@ function ReviewForm ({onAddReview}){
                 />
                 <br/>
                 <button>Post</button>
+                {errors.length > 0 && (
                 <ul style={{color: "red"}}>
                 {errors.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
+                <li key={error}>{error}</li>
+                 ))}
+                </ul>
+                )}
            </form>
         </div>
     )
