@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../user";
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 
 function Login() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState([])
   const {login} = useContext(UserContext)
-
+  const navigate = useNavigate()
 
   function handleSubmit(e){
     e.preventDefault()
@@ -28,6 +28,7 @@ function Login() {
           setUsername("")
           setPassword("")
           alert("You have successfully logged in. Welcome back!")
+          navigate('/')
         })
       } else {
         res.json().then((err) => setError(err.errors))
@@ -60,12 +61,13 @@ function Login() {
         <button>Log In</button>
         <br/>
         <p>You don't have an account? Please <Link to={'/signup'} style={{color: "white"}}>register</Link></p>
-          <ul style={{color: "red"}}>
+        {error.length > 0 && (
+          <div>
             {error.map((error) => (
-              <li key={error}>{error}</li>
+              <ul className="error" key={error}><span>!</span>{error}</ul>
             ))}
-          </ul>
-        
+          </div>
+        )}
       </form>
     </div>
   );

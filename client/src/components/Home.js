@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import BookList from "./BookList";
-import CategoryFilter from "./CategoryFilter";
 import {UserContext} from '../user';
 
 function Home({books}) {
@@ -11,9 +10,8 @@ function Home({books}) {
   } else {
     return (
       <div className="app">
-        <div className="sidebar">
-          <CategoryFilter />
-        </div>
+        <h1>Most Recommended Books by Our Members</h1>
+        <br/>
         {books.map((book) => (
           <BookList key={book.id} book={book}/>
         ))}

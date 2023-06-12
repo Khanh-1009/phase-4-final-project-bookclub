@@ -1,7 +1,21 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, {useContext} from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { UserContext } from "../user";
 
 function Header() {
+  const {user, logout} = useContext(UserContext)
+  const navigate = useNavigate()
+
+  function handleLogoutClick(){
+    fetch('/logout', {
+      method: "DELETE",
+      headers: {'Content-Type': 'application/json'}
+    })
+    .then(() => {
+      logout()
+      navigate('/')
+    })
+  }
 
   return (
     <header>
@@ -27,16 +41,18 @@ function Header() {
         >
         Add-Book
         </NavLink>
-        <NavLink
-        to="/login" 
-        style={({isActive}) => { return {
-          color: isActive ? "black" : "white",
-          background: isActive? "white" : "rgb(22, 23, 23)"
-        }}}
-        className={({isActive}) => (isActive ? 'active' : 'link')}
-        >
-        &#128100; Log In 
-      </NavLink>
+        {user ? (<NavLink>
+          <button className="logout-btn" onClick={handleLogoutClick}>{user.username}, Log Out</button>
+          </NavLink>) : (<NavLink
+            to="/login" 
+            style={({isActive}) => { return {
+              color: isActive ? "black" : "white",
+              background: isActive? "white" : "rgb(22, 23, 23)"
+            }}}
+            className={({isActive}) => (isActive ? 'active' : 'link')}
+            >
+            &#128100; Log In 
+          </NavLink>)}
       </div>
     </header>
   );

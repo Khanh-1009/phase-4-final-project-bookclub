@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../user";
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 
 function Signup() {
   const [username, setUsername] = useState("")
@@ -8,6 +8,7 @@ function Signup() {
   const [passwordConfirmation, setPasswordConfirmation] = useState("")
   const [errorsList, setErrorsList] = useState([])
   const {signup} = useContext(UserContext)
+  const navigate = useNavigate()
 
   function handleSubmit(e){
     e.preventDefault()
@@ -28,6 +29,7 @@ function Signup() {
           setPassword("")
           setPasswordConfirmation("")
           alert('Thanks for signing up! Enjoy and share your experience with us!')
+          navigate('/')
         })
       } else {
         res.json().then((err) => setErrorsList(err.errors))
@@ -70,11 +72,11 @@ function Signup() {
         <br/>
         <p>You might have created an account before? Please try to <Link to={'/login'} style={{color: "white"}}>sign in</Link></p>
         {errorsList.length > 0 && (
-          <ul style={{color: "red"}}>
+          <div>
             {errorsList.map((error) => (
-              <li key={error}>{error}</li>
+              <ul className="error" key={error}><span>!</span>{error}</ul>
             ))}
-          </ul>
+          </div>
         )}
       </form>
     </div>
