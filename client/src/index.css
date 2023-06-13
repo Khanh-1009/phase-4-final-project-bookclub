@@ -212,11 +212,7 @@ header h1 {
   cursor: pointer;
   padding: 2px;
 }
-/*Edit Review*/
-#edit-review {
-  width: 99%;
-  line-height: 2;
-}
+
 /*Signup-Login form*/
 .signup-login-form {
   margin-top: 200px;
@@ -349,4 +345,16 @@ header h1 {
   font-weight: bold;
   display: grid;
   place-content: center;
+}
+/*Login Sign*/
+#login-sign{
+  margin-top: 200px;
+  margin-inline: auto;
+  background-color: rgb(88, 91, 91);
+  border: 1px solid rgb(0, 0, 0);
+  display: block;
+  flex-direction: column;
+  width: 600px;
+  padding: 1rem 1rem 1rem;
+  color: white
 }

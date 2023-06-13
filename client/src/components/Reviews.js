@@ -6,13 +6,17 @@ function Reviews ({bookReview, onChangeReview, onDeleteReview}){
     const {subject, review, rating, id, user_id, username} = bookReview
     const {user} = useContext(UserContext)
     const [isEditing, setEditing] = useState(false)
+    const [like, setLike] = useState(false)
 
     function editingReview(updatedReview){
         setEditing(false)
         onChangeReview(updatedReview)
     }
 
-    console.log(id)
+    function handleLike(){
+        setLike((like) => !like)
+    }
+
     function handleDeleteReview(){
         fetch(`/reviews/${id}`, {
             method: "DELETE",
@@ -24,19 +28,23 @@ function Reviews ({bookReview, onChangeReview, onDeleteReview}){
         })
     }
 
-    if (user.id === user_id) {
-        return (
-            <div className="book-review">
-                <div className="each-review">
-                    <h3>{subject} - {rating} &#11088;s</h3>
-                    {isEditing ? <ReviewEdit id={id} review={review} onUpdateReview={editingReview}/> : <p>{review}</p>}
-                    <p style={{display:"inline-block"}}><i>Posted by {username}</i></p>
-                    {isEditing ? "" : <button className="btn" onClick={() => setEditing((isEditing) => !isEditing)}>Edit Post</button>}
-                    {isEditing ? "" : <button className="btn" onClick={handleDeleteReview}>Delete Post</button>}
-                    
+     if (user.id === user_id) {
+        if (isEditing) {
+            return (<ReviewEdit bookReview={bookReview} onUpdateReview={editingReview}/>)
+        } else {
+            return (
+                <div className="book-review">
+                    <div className="each-review">
+                        <h3>{subject} - {rating} &#11088;s</h3>
+                        <p>{review}</p>
+                        <p style={{display:"inline-block"}}><i>Posted by {username}</i></p>
+                        <button className="btn" onClick={handleDeleteReview}>Delete Post</button>
+                        <button className="btn" onClick={() => setEditing((isEditing) => !isEditing)}>Edit Post</button>
+                    </div>
                 </div>
-            </div>
             )
+        }
+
     } else {
         return (
             <div className="book-review">
@@ -44,14 +52,13 @@ function Reviews ({bookReview, onChangeReview, onDeleteReview}){
                     <h3>{subject} - {rating} &#11088;s</h3>
                     <p>{review}</p>
                     <p style={{display:"inline-block"}}><i>Posted by {username}</i></p>
-                    <button className="btn">Helpful &#128077;</button>
+                    {like ? <button className="btn" onClick={handleLike}>Liked &#128077;</button> : 
+                    <button className="btn" onClick={handleLike}>Like</button>}
+                    
                 </div>
             </div>
-            )
+        )
     }
-
-
-
 }
 
 export default Reviews;

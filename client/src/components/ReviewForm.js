@@ -7,7 +7,6 @@ function ReviewForm ({onAddReview}){
     const [rate, setRate] = useState(1)
     const [review, setReview] = useState("")
     const [errors, setErrors] = useState([])
-    const {user} = useContext(UserContext)
 
     const params = useParams()
 
@@ -35,7 +34,6 @@ function ReviewForm ({onAddReview}){
                 rating: rate,
                 review: review,
                 book_id: params.id,
-                // user_id: user.id
             })
         })
         .then(res => {
