@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        review = current_book.reviews.create!(review_params)
+        review = current_user.reviews.create!(review_params)
         render json: review, status: :created
         # if review.valid?
         #     render json: review
@@ -18,13 +18,13 @@ class ReviewsController < ApplicationController
     end
 
     def update
-        review = current_book.reviews.find(params[:id])
+        review = current_user.reviews.find(params[:id])
         review.update!(review_params)
         render json: review
     end
 
     def destroy
-        review = Review.find(params[:id])
+        review = current_user.reviews.find(params[:id])
         review.destroy
         head :no_content
     end
@@ -35,8 +35,12 @@ class ReviewsController < ApplicationController
         Book.find(params[:book_id])
     end
 
+    def current_user
+        User.find_by(id: session[:user_id])
+    end
+
     def review_params
-        params.permit(:subject, :rating, :review, :book_id, :user_id)
+        params.permit(:subject, :rating, :review, :book_id)
     end
     
     def render_unprocessable_entity_response(invalid)

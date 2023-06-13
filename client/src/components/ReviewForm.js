@@ -35,7 +35,7 @@ function ReviewForm ({onAddReview}){
                 rating: rate,
                 review: review,
                 book_id: params.id,
-                user_id: user.id
+                // user_id: user.id
             })
         })
         .then(res => {

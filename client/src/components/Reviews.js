@@ -3,7 +3,7 @@ import { UserContext } from "../user";
 import ReviewEdit from "./ReviewEdit"
 
 function Reviews ({bookReview, onChangeReview, onDeleteReview}){
-    const {subject, review, rating, id, user_id} = bookReview
+    const {subject, review, rating, id, user_id, username} = bookReview
     const {user} = useContext(UserContext)
     const [isEditing, setEditing] = useState(false)
 
@@ -17,10 +17,10 @@ function Reviews ({bookReview, onChangeReview, onDeleteReview}){
         fetch(`/reviews/${id}`, {
             method: "DELETE",
         })
-        .then(res => res.json())
-        .then(() => {
-            console.log(id)
-            
+        .then(res => {
+            if (res.ok) {
+                onDeleteReview(bookReview)
+            }
         })
     }
 
@@ -30,7 +30,7 @@ function Reviews ({bookReview, onChangeReview, onDeleteReview}){
                 <div className="each-review">
                     <h3>{subject} - {rating} &#11088;s</h3>
                     {isEditing ? <ReviewEdit id={id} review={review} onUpdateReview={editingReview}/> : <p>{review}</p>}
-                    <p style={{display:"inline-block"}}><i>Posted by {user.username}</i></p>
+                    <p style={{display:"inline-block"}}><i>Posted by {username}</i></p>
                     {isEditing ? "" : <button className="btn" onClick={() => setEditing((isEditing) => !isEditing)}>Edit Post</button>}
                     {isEditing ? "" : <button className="btn" onClick={handleDeleteReview}>Delete Post</button>}
                     
@@ -43,7 +43,7 @@ function Reviews ({bookReview, onChangeReview, onDeleteReview}){
                 <div className="each-review">
                     <h3>{subject} - {rating} &#11088;s</h3>
                     <p>{review}</p>
-                    <p style={{display:"inline-block"}}><i>Posted by </i></p>
+                    <p style={{display:"inline-block"}}><i>Posted by {username}</i></p>
                     <button className="btn">Helpful &#128077;</button>
                 </div>
             </div>

@@ -13,16 +13,16 @@ function UserProvider({children}){
 
     console.log(user)
 
-    function login(){
-        setUser(user)
+    function login(loggedInUser){
+        setUser(loggedInUser)
     }
 
     function logout(){
         setUser(null)
     }
 
-    function signup(){
-        setUser(user)
+    function signup(newUser){
+        setUser(newUser)
     }
 
     return (

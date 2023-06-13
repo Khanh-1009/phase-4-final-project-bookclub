@@ -16,7 +16,7 @@ function BookDetail({books, setBooks}) {
   }, [books])
 
   function handleAddReview(newReview){
-    const addNewReview = [...currentBook.reviews, newReview]
+    const addNewReview = [newReview, ...currentBook.reviews]
     currentBook.reviews = addNewReview
     const updatedBookAfterAddedReview = books.map(book => book.id === currentBook.book_id ? currentBook : book)
     setBooks(updatedBookAfterAddedReview)
