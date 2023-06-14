@@ -44,6 +44,11 @@ function BookDetail({books, setBooks, onUpdateDescription}) {
     setBooks(updatedBookAfterEditReview)
   }
 
+  function handleEditDescription(editedSummary){
+    setIsEditBook(false)
+    onUpdateDescription(editedSummary)
+  }
+
   return (
     <div>
       <div className="each-book">
@@ -58,10 +63,10 @@ function BookDetail({books, setBooks, onUpdateDescription}) {
               <p>Author: {currentBook.author}</p>
               {isEditBook ? <BookEdit 
               id={currentBook.id} description={currentBook.description}
-              onUpdateDescription={onUpdateDescription}/> : <p>{currentBook.description}</p>}
+              onEditDescription={handleEditDescription}/> : <p>{currentBook.description}</p>}
           </div>
           <div className="button-book">
-          <button style={{margin:"15px"}} onClick={() => setIsEditBook((isEditBook) => !isEditBook)}>Edit Summary</button>
+          {isEditBook ? "" : <button style={{margin:"15px"}} onClick={() => setIsEditBook((isEditBook) => !isEditBook)}>Edit Summary</button>}
           </div>
       </div>
       <ReviewForm onAddReview={handleAddReview}/>

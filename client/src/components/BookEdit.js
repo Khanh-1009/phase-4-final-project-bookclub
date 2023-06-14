@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function BookEdit({id, description, onUpdateDescription}){
+function BookEdit({id, description, onEditDescription}){
     const [editDescription, setEditDescription] = useState(description)
 
     function handleChangeDescription(e){
@@ -16,10 +16,10 @@ function BookEdit({id, description, onUpdateDescription}){
             },
             body: JSON.stringify({
                 description: editDescription,
-            })
+            }),
         })
         .then(res => res.json())
-        .then(updatedDescription => onUpdateDescription(updatedDescription))
+        .then(updatedDescription => onEditDescription(updatedDescription))
     }
 
     return (
