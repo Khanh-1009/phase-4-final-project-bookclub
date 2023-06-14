@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReviewForm from "./ReviewForm";
 import Reviews from "./Reviews";
+import BookEdit from "./BookEdit";
 
-function BookDetail({books, setBooks}) {
+function BookDetail({books, setBooks, onUpdateDescription}) {
   const [currentBook, setCurrentBook] = useState({reviews: []})
+  const [isEditBook, setIsEditBook] = useState(false)
   const params = useParams()
   const bookId = parseInt(params.id)
 
@@ -54,10 +56,12 @@ function BookDetail({books, setBooks}) {
                 {currentBook.category} | {currentBook.year} 
               </p>
               <p>Author: {currentBook.author}</p>
-              <p>{currentBook.description}</p>
+              {isEditBook ? <BookEdit 
+              id={currentBook.id} description={currentBook.description}
+              onUpdateDescription={onUpdateDescription}/> : <p>{currentBook.description}</p>}
           </div>
           <div className="button-book">
-          <button style={{margin:"15px"}}>Edit Summary</button>
+          <button style={{margin:"15px"}} onClick={() => setIsEditBook((isEditBook) => !isEditBook)}>Edit Summary</button>
           </div>
       </div>
       <ReviewForm onAddReview={handleAddReview}/>

@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 function Home({books}) {
   const {user} = useContext(UserContext)
 
+  console.log(books)
+
   if (!user || user.error) {
     return (<h2 id="login-sign">Please <Link to="/login" style={{color: "white"}}>Login</Link> or <Link to="/signup" style={{color: "white"}}>Signup</Link> to share your knowledge and love of greatest books with other book lovers!</h2>)
   } else {
