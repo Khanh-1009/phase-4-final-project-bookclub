@@ -23,7 +23,7 @@ class BooksController < ApplicationController
             book.update!(book_params)
             render json: book
         else
-            render json: { errors: ["Bird not found"] }, status: :not_found
+            render json: { errors: ["Book not found"] }, status: :not_found
         end
     end
 

@@ -31,7 +31,7 @@ function Header() {
         >
         Home
         </NavLink>
-        <NavLink 
+        {!user || user.error ? "" : <NavLink 
         to="/add-book" 
         style={({isActive}) => { return {
           color: isActive ? "black" : "white",
@@ -40,7 +40,7 @@ function Header() {
         className={({isActive}) => (isActive ? 'active' : 'link')}
         >
         Add-Book
-        </NavLink>
+        </NavLink>}
         {!user || user.error ? (<NavLink
           to="/login" 
           style={({isActive}) => { return {
