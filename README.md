@@ -22,3 +22,4 @@ For the user login, signup, and password protection, BCrypt is used to protected
 
 ## Conclusion
 
+This phase-4 project is a huge one which involved many knowledges that I've learned so far. It is a difficult project with two seperate parts: React App for the Front-End and Ruby on Rails App for the Back-End. The Back-End setup is also more complicated than the phase-3, and the React app involved new things either. I had to look for many sources (videos, blogs, lectures) and communicate with the phase-4 lead, Ben Aschenbrenner frequently. This is so far the best project I've had, and I am so happy of my work.

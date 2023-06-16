@@ -9,11 +9,6 @@ class ReviewsController < ApplicationController
     def create
         review = current_user.reviews.create!(review_params)
         render json: review, status: :created
-        # if review.valid?
-        #     render json: review
-        # else
-        #     render json: { errors: review.errors.full_messages }, status: :unprocessable_entity
-        # end
     end
 
     def update
