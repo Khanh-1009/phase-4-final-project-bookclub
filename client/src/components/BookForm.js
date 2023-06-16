@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function BookForm({onAddNewBook}) {
   const [errors, setErrors] = useState([])
@@ -10,6 +11,7 @@ function BookForm({onAddNewBook}) {
     poster_url: "",
     category: "",
   })
+  const navigate = useNavigate()
 
   function handleChange(e){
     const keyValue = e.target.id
@@ -41,6 +43,7 @@ function BookForm({onAddNewBook}) {
             category: ""
           })
           alert("Thanks for being awesome! We have posted this new book in our website for all members to enjoy!")
+          navigate('/')
         })
       } else {
         res.json().then((err) => setErrors(err.errors))
