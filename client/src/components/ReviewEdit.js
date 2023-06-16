@@ -5,6 +5,7 @@ function ReviewEdit ({bookReview, onUpdateReview}){
     const [editSubject, setEditSubject] = useState(subject)
     const [editRating, setEditRating] = useState(rating)
     const [editReview, setEditReview] = useState(review)
+    const [errors, setErrors] = useState([])
 
     function handleChangeNewSubject(e){
         setEditSubject(e.target.value)
@@ -31,10 +32,15 @@ function ReviewEdit ({bookReview, onUpdateReview}){
                 review: editReview
             }),
         })
-        .then(res => res.json())
-        .then(updatedReview => {
-            console.log("got here")
-            onUpdateReview(updatedReview)})
+        .then(res => {
+            if (res.ok) {
+                res.json().then((updatedReview) => {
+                    onUpdateReview(updatedReview)
+                })
+            } else {
+                res.json().then((err) => setErrors(err.errors))
+            }
+        })
     }
 
     return (
@@ -67,13 +73,13 @@ function ReviewEdit ({bookReview, onUpdateReview}){
                 />
                 <br/>
                 <button>Save</button>
-                {/* {errors.length > 0 && (
+                {errors.length > 0 && (
                 <div>
                 {errors.map((error) => (
                 <ul className="error-review" key={error}><span>!</span>{error}</ul>
                  ))}
                 </div>
-                )} */}
+                )}
            </form>
         </div>
     )

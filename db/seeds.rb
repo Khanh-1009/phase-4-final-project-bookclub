@@ -12,7 +12,7 @@ Book.create([
         year: 1862,
         author: "Victor Hugo",
         description: "This is a French historical novel by Victor Hugo, first published in 1862, that is considered one of the greatest novels of the 19th century. Les Misérables has been popularized through numerous adaptations for film, television and the stage, including a musical.Les Misérables presents a vast panorama of Parisian society and its underworld, and it contains many famous episodes and passages, among them a chapter on the Battle of Waterloo and the description of Valjean’s rescue of Marius by means of a flight through the sewers of Paris. A popular musical stage adaptation was produced in 1980.",
-        poster_url: "https://m.media-amazon.com/images/I/41gUIgTQgdL._SX303_BO1,204,203,200_.jpg",
+        poster_url: "https://m.media-amazon.com/images/I/914ou95ewEL._AC_UF1000,1000_QL80_.jpg",
         category: "Historical Fiction"
     },
     {
@@ -24,12 +24,13 @@ Book.create([
         category: "Romance"
     },
     {
-        title: "The Freedom Writers Dairy",
-        year: 1999,
-        author: "Freedom Writers",
-        description: "The Freedom Writers Diary was made up of journals that Erin Gruwell told her students to write in about the troubles of their past, present and future. The Freedom Writers name pays homage to the name of the 1960s civil rights group Freedom Riders. After intercepting a racist drawing from one of her students, Gruwell compared the drawings to Nazi propaganda techniques. She drew blank stares; only one of them had heard of the Holocaust. As a result, she assigned them to read and write about the posthumously published 1947 book The Diary of Anne Frank (written between 1942 and 1944) and the 1992–93 non-fiction book by Zlata Filipović, Zlata's Diary: A Child's Life in Sarajevo.",
-        poster_url: "https://m.media-amazon.com/images/I/41IlXXfBzHL._SX322_BO1,204,203,200_.jpg",
-        category: "Non-Fiction"
+        title: "Awful Auntie",
+        year: 2014,
+        author: "David Walliams",
+        description: "The book is set in December 1933. The central character is Stella Saxby, who is a very rich girl. Her parents, Lord and Lady Saxby, have died in a tragic car accident. In the wake of the tragedy, Stella's Aunt Alberta launches a plot to trick Stella out of her inheritance. Also featured are Wagner (Aunt Alberta's enormous owl that was found in a war), Soot (a ghost of a chimney sweep) and Gibbon (the Saxby's elderly butler who offers much comic relief).
+        Alberta lives up to her moniker as being awful. She lacks all sympathy and morals, having chosen to fight on the German side in World War I simply because she preferred their uniforms. Alberta was determined to have her niece, Stella, sign over the deeds of the house for her own selfish reasons. Alberta also tortures poor Stella in unimaginable ways so she would sign the house deeds. She has tortured and killed people and loves vicious owls. Stella rightfully fears her, and has to use all her wits to overcome the antagonism. Stella also encounters a ghost named Soot who was her late uncle that she never knew. Soot and Stella become friends and decide to give Alberta a hard time so she would run away.",
+        poster_url: "https://m.media-amazon.com/images/I/71zGGvzUn3L._AC_UF1000,1000_QL80_.jpg",
+        category: "Fiction"
     },
     {
         title: "Anne of Green Gables",
@@ -73,76 +74,76 @@ Book.create([
     }
 ])
 
-Review.create([
-    {
-        subject: "Great Book",
-        review: "This such an amazingly wonderful book which made laugh out loud and cry my eyes out, but it was so worth it! I definitely recommend people to read or else you're gonna miss out on a lot! Alex's and Rosie's life is truly a Rollercoaster of fate, love, friendship and destiny",
-        rating: 5,
-        user_id: 3,
-        book_id: 3
-    },
-    {
-        subject: "Nice story but not quite satisfied",
-        review: "A good-humoured epistolary novel about two people who were meant to be together from the very beginning, but it took them quite long to realise that.",
-        rating: 3,
-        user_id: 4,
-        book_id: 3
-    },
-    {
-        subject: "Classic is always great",
-        review: "Wow! What an amazing  book. Modern literature doesn't compare. It reflects an interesting time in history; has a moral story to it that highlights integrity and honesty and a bit of philosophy thrown in, which makes it a must read despite its length.",
-        rating: 5,
-        user_id: 7,
-        book_id: 2
-    },
-    {
-        subject: "Loved it but I actually loved the movie version more",
-        review: "It was fantastic. Although, Hugo's writing does get bland quite often when he talks of sewers for 40 pages, for example. Overall, the book is fantastic.",
-        rating: 4,
-        user_id: 6,
-        book_id: 2
-    },
-    {
-        subject: "Great real story",
-        review: "This is what I always believe education is about. Teachers shouldn't expect to have an easy job with all A+ students in the class. Sometimes we consider good kids or bad kids base on how smart they are. Every children is deserved to be taught with love.",
-        rating: 5,
-        user_id: 3,
-        book_id: 4
-    },
-    {
-        subject: "Not for me...",
-        review: "i was so eager to start the book as I heard rave reviews.  Now I'm struggling to finish the book.  I'm only 30 pages in and the bashing of Donald Trump, I feel, is taking away from what I thought the book was about and what I had hoped to gain from it.",
-        rating: 1,
-        user_id: 5,
-        book_id: 7
-    },
-    {
-        subject: "You won't regret. Trust Me!!!",
-        review: "Don't hesitate to read this fine work.  Tolstoy writes with authority and deep sympathy.  There are many great character portraits and even less prominent characters are brought vividly to life. These people belong to a time remote from ours and yet their concerns and fears, their joys and sorrows are very much our own.",
-        rating: 5,
-        user_id: 3,
-        book_id: 18
-    },
-    {
-        subject: "Read it so many time",
-        review: "While not my absolute favorite book, I think that this is the ultimate novel. It's length, scope, characters, and history all come together in a surprisingly cohesive narrative. My favorite parts were the fact that this gives the reader an on the ground account of the battles of Austerlitz and Borodino. The character development in this book is insane, and probably the best part of it. ",
-        rating: 5,
-        user_id: 6,
-        book_id: 18
-    },
-    {
-        subject: "Big disappointment",
-        review: "I just love John Grisham books, however, not this one. Such a disappointment…kept waiting for it to become interesting. I had to actually push myself to finish it. Characters are just not likable and the plot is simply not that interesting, to say the least.",
-        rating: 2,
-        user_id: 4,
-        book_id: 19
-    },
-    {
-        subject: "Awful literacy work",
-        review: "Awful.  Gave up half way through
-        Grisham has been past his sell by date a long time now.",
-        rating: 1,
-        user_id: 7,
-        book_id: 19
-    }
-])
+# Review.create([
+#     {
+#         subject: "Great Book",
+#         review: "This such an amazingly wonderful book which made laugh out loud and cry my eyes out, but it was so worth it! I definitely recommend people to read or else you're gonna miss out on a lot! Alex's and Rosie's life is truly a Rollercoaster of fate, love, friendship and destiny",
+#         rating: 5,
+#         user_id: 3,
+#         book_id: 3
+#     },
+#     {
+#         subject: "Nice story but not quite satisfied",
+#         review: "A good-humoured epistolary novel about two people who were meant to be together from the very beginning, but it took them quite long to realise that.",
+#         rating: 3,
+#         user_id: 4,
+#         book_id: 3
+#     },
+#     {
+#         subject: "Classic is always great",
+#         review: "Wow! What an amazing  book. Modern literature doesn't compare. It reflects an interesting time in history; has a moral story to it that highlights integrity and honesty and a bit of philosophy thrown in, which makes it a must read despite its length.",
+#         rating: 5,
+#         user_id: 7,
+#         book_id: 2
+#     },
+#     {
+#         subject: "Loved it but I actually loved the movie version more",
+#         review: "It was fantastic. Although, Hugo's writing does get bland quite often when he talks of sewers for 40 pages, for example. Overall, the book is fantastic.",
+#         rating: 4,
+#         user_id: 6,
+#         book_id: 2
+#     },
+#     {
+#         subject: "Great real story",
+#         review: "This is what I always believe education is about. Teachers shouldn't expect to have an easy job with all A+ students in the class. Sometimes we consider good kids or bad kids base on how smart they are. Every children is deserved to be taught with love.",
+#         rating: 5,
+#         user_id: 3,
+#         book_id: 4
+#     },
+#     {
+#         subject: "Not for me...",
+#         review: "i was so eager to start the book as I heard rave reviews.  Now I'm struggling to finish the book.  I'm only 30 pages in and the bashing of Donald Trump, I feel, is taking away from what I thought the book was about and what I had hoped to gain from it.",
+#         rating: 1,
+#         user_id: 5,
+#         book_id: 7
+#     },
+#     {
+#         subject: "You won't regret. Trust Me!!!",
+#         review: "Don't hesitate to read this fine work.  Tolstoy writes with authority and deep sympathy.  There are many great character portraits and even less prominent characters are brought vividly to life. These people belong to a time remote from ours and yet their concerns and fears, their joys and sorrows are very much our own.",
+#         rating: 5,
+#         user_id: 3,
+#         book_id: 18
+#     },
+#     {
+#         subject: "Read it so many time",
+#         review: "While not my absolute favorite book, I think that this is the ultimate novel. It's length, scope, characters, and history all come together in a surprisingly cohesive narrative. My favorite parts were the fact that this gives the reader an on the ground account of the battles of Austerlitz and Borodino. The character development in this book is insane, and probably the best part of it. ",
+#         rating: 5,
+#         user_id: 6,
+#         book_id: 18
+#     },
+#     {
+#         subject: "Big disappointment",
+#         review: "I just love John Grisham books, however, not this one. Such a disappointment…kept waiting for it to become interesting. I had to actually push myself to finish it. Characters are just not likable and the plot is simply not that interesting, to say the least.",
+#         rating: 2,
+#         user_id: 4,
+#         book_id: 19
+#     },
+#     {
+#         subject: "Awful literacy work",
+#         review: "Awful.  Gave up half way through
+#         Grisham has been past his sell by date a long time now.",
+#         rating: 1,
+#         user_id: 7,
+#         book_id: 19
+#     }
+# ])

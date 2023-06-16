@@ -1,19 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import BookList from "./BookList";
 import {UserContext} from '../user';
 import { Link } from "react-router-dom";
 
 function Home({books}) {
   const {user} = useContext(UserContext)
-  // const [bookList, setBookList] = useState([])
-
-  // console.log(bookList)
-
-  // useEffect(() => {
-  //   if (books.length > 0) {
-  //     setBookList(books)
-  //   }
-  // }, [books])
 
   console.log(books)
 
