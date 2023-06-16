@@ -1,15 +1,12 @@
 class BooksController < ApplicationController
+    # rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     before_action :authorize
+    skip_before_action :authorize, only: [:index]
 
     def index
         books = Book.all
-        render json: books, include: ['reviews', 'reviews.users']
-    end
-
-    def show
-        book = Book.find(params[:id])
-        render json: book
+        render json: books
     end
 
     def create
@@ -32,11 +29,11 @@ class BooksController < ApplicationController
         params.permit(:title, :year, :author, :description, :poster_url, :category)
     end
 
-    def render_unprocessable_entity_response(invalid)
-        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
-    end
-
     def authorize 
         render json: {error: "Not authorized"}, status: :unauthorized unless session.include? :user_id        
+    end
+
+    def render_unprocessable_entity_response(invalid)
+        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
     end
 end

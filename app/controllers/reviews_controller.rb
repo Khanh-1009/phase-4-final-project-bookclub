@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     before_action :authorize
-
+  
     def index
         reviews = Review.all 
         render json: reviews
@@ -31,10 +31,6 @@ class ReviewsController < ApplicationController
 
     private
 
-    def current_book
-        Book.find(params[:book_id])
-    end
-
     def current_user
         User.find_by(id: session[:user_id])
     end
@@ -43,11 +39,11 @@ class ReviewsController < ApplicationController
         params.permit(:subject, :rating, :review, :book_id)
     end
     
+    def authorize 
+        render json: {error: "Not authorized"}, status: :unauthorized unless session.include? :user_id        
+    end
+    
     def render_unprocessable_entity_response(invalid)
         render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
-    end
-
-    def authorize 
-        render json: { errors: "Not authorized"}, status: :unauthorized unless session.include? :user_id
     end
 end
