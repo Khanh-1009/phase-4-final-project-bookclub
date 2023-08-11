@@ -1,10 +1,5 @@
 class ReviewsController < ApplicationController
 
-  
-    def index
-        reviews = Review.all 
-        render json: reviews
-    end
 
     def create
         review = current_user.reviews.create!(review_params)
