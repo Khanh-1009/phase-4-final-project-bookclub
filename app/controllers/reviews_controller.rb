@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-    # the index method won't be used because the reviews will be fetched along with the books, but I leave it here to 
+    # the index method won't be used because the reviews will be fetched along with the books, but I have it here for full CRUD in this model.
     # def index
     #     reviews = Review.all 
     #     render json: reviews
