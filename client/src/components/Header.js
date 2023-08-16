@@ -42,8 +42,6 @@ function Header() {
         Add-Book
         </NavLink>}
         {!user || user.error ? (<NavLink
-
-        
           to="/login" 
           style={({isActive}) => { return {
             color: isActive ? "black" : "white",
@@ -61,51 +59,3 @@ function Header() {
 }
 
 export default Header;
-
-
-// import { UserContext } from "../user";
-
-  // const {user, logout} = useContext(UserContext)
-
-  // function handleLogoutClick(){
-  //   fetch('/logout', {method: "DELETE"}).then((res) => {
-  //     if (res.ok){
-  //       logout()
-  //     }
-  //   })
-  // }
-
-// {user ? (
-//   <div>
-//   <h3>Welcome,</h3>
-//   <button onClick={handleLogoutClick}>Log Out</button>
-//   </div>
-//   ) : ( 
-//     <NavLink
-//     to="/login" 
-//     exact 
-//     style={linkStyles}
-//     activeStyle={{
-//       background: "white",
-//       color: "black"
-//     }}
-//     >
-//     &#128100; Log In 
-//   </NavLink>)}
-
-
-
-
-
-// {user ? (<NavLink>
-//   <button className="logout-btn" onClick={handleLogoutClick}>{user.username}, Log Out</button>
-//   </NavLink>) : (<NavLink
-//     to="/login" 
-//     style={({isActive}) => { return {
-//       color: isActive ? "black" : "white",
-//       background: isActive? "white" : "rgb(22, 23, 23)"
-//     }}}
-//     className={({isActive}) => (isActive ? 'active' : 'link')}
-//     >
-//     &#128100; Log In 
-//   </NavLink>)}

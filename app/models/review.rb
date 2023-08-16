@@ -8,4 +8,5 @@ class Review < ApplicationRecord
     def username 
         user.username
     end
+
 end

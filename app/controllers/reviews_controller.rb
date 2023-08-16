@@ -1,5 +1,10 @@
 class ReviewsController < ApplicationController
 
+    # the index method won't be used because the reviews will be fetched along with the books, but I leave it here to 
+    # def index
+    #     reviews = Review.all 
+    #     render json: reviews
+    # end
 
     def create
         review = current_user.reviews.create!(review_params)
